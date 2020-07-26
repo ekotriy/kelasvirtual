@@ -25,27 +25,28 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th scope="col">Jenis</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Tugas</th>
+                                <th scope="col">Tgl Selesai</th>
+                                <th scope="col">Kelas</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tugas</td>
-                                <td>
+                            <?php $a = 1; ?>
+                            <?php foreach ($tugas as $item) : ?>
+                                <tr>
+                                    <td scope="row"><?= $a++; ?></td>
+                                    <td><?= $item['tugas']; ?></td>
+                                    <td><?= $item['tgl_selesai']; ?></td>
+                                    <td><?= $item['kelas']; ?></td>
+                                    <td>
 
-                                    <a href="<?= base_url(); ?>dosen/laptugas/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="btn btn-success"> <i class="fas fa-search">
-                                            <span>Detail</span></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Materi</td>
-                                <td>
-
-                                    <a href="<?= base_url(); ?>dosen/lapmateri/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="btn btn-success"> <i class="fas fa-search">
-                                            <span>Detail</span></i></a>
-                                </td>
-                            </tr>
+                                        <a href="<?= base_url(); ?>dosen/detaillaporan/<?= $item['id_kelas']; ?>/<?= $item['id_tugas']; ?>" class="btn btn-success"> <i class="fas fa-search">
+                                                <span>Detail</span></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

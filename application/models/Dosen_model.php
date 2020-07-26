@@ -39,7 +39,8 @@ class Dosen_model extends CI_Model
             'id_kelas' => $code,
             'materi' => $this->input->post('judul', true),
             'keterangan' => $this->input->post('keterangan', true),
-            'file' => $this->Upload()
+            'file' => $this->Upload(),
+            'tgl_buat' => time()
         ];
         return $this->db->insert('materi', $data);
     }
@@ -208,5 +209,15 @@ class Dosen_model extends CI_Model
         $this->db->where('kelas.pembuat', $id);
         $query = $this->db->get();
         return $query->num_rows();
+    }
+
+    public function joinpembuat()
+    {
+        $dosen = $this->session->userdata('id');
+        $this->db->select('*');
+        $this->db->from('kelas');
+        $this->db->join('user', 'kelas.pembuat = user.id_user');
+        $this->db->where('kelas.pembuat', $dosen);
+        return $this->db->get()->result_array();
     }
 }

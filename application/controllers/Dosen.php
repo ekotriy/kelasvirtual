@@ -29,7 +29,7 @@ class Dosen extends CI_Controller
 	public function Allkelas()
 	{
 		$data['user'] = $this->dosen->user();
-		$data['kelas'] = $this->db->get_where('kelas', ['pembuat' => $this->session->userdata('id')])->result_array();
+		$data['dosen'] = $this->dosen->joinpembuat();
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
 		$this->load->view('templates/topbar', $data);
@@ -305,6 +305,29 @@ class Dosen extends CI_Controller
 		$this->load->view('templates/sidebar');
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('dosen/kelas_anggota', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function laptugas()
+	{
+		$data['user'] = $this->dosen->user();
+		$data['tugas'] = $this->dosen->joinLaporan();
+		$data['kelas'] = $this->dosen->kelas();
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dosen/laporan_tugas', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function lapmateri()
+	{
+		$data['materi'] = $this->dosen->joinAllMateri();
+		$data['kelas'] = $this->dosen->kelas();
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('templates/topbar');
+		$this->load->view('dosen/laporan_materi', $data);
 		$this->load->view('templates/footer');
 	}
 }

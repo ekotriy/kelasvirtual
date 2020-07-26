@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
       <!-- <form action="" method="post"> -->
-      <?= form_open_multipart('mahasiswa/kirimtugas/'.$this->uri->segment(3).'/'.$this->uri->segment(4)); ?>
+      <?= form_open_multipart('mahasiswa/kirimtugas/' . $this->uri->segment(3) . '/' . $this->uri->segment(4)); ?>
       <div class="form-group">
         <label for="judul">Judul</label>
         <input type="text" class="form-control" name="judul" id="judul">
@@ -25,6 +25,7 @@
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="image" name="tugas">
               <label class="custom-file-label" for="image">Choose file</label>
+              <small class="form-text text-muted"><span class="text-danger">Penting !</span> format file harus pdf atau docx. ukuran maksimal 3MB</small>
             </div>
           </div>
         </div>

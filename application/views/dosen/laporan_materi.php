@@ -25,27 +25,22 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th scope="col">Jenis</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Materi</th>
+                                <th scope="col">Tgl Kirim</th>
+                                <th scope="col">Kelas</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tugas</td>
-                                <td>
-
-                                    <a href="<?= base_url(); ?>dosen/laptugas/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="btn btn-success"> <i class="fas fa-search">
-                                            <span>Detail</span></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Materi</td>
-                                <td>
-
-                                    <a href="<?= base_url(); ?>dosen/lapmateri/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="btn btn-success"> <i class="fas fa-search">
-                                            <span>Detail</span></i></a>
-                                </td>
-                            </tr>
+                            <?php $a = 1; ?>
+                            <?php foreach ($materi as $item) : ?>
+                                <tr>
+                                    <td scope="row"><?= $a++; ?></td>
+                                    <td><?= $item['materi']; ?></td>
+                                    <td><?= Date(' l d F Y', $item['tgl_buat']); ?></td>
+                                    <td><?= $item['kelas']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

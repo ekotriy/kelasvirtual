@@ -13,7 +13,7 @@
                 <ul class="list-group list-group-flush">
                     <a href="<?= base_url(); ?>dosen/allmateri/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="list-group-item text-dark card-link">Materi</a>
                     <a href="<?= base_url(); ?>dosen/alltugas/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="list-group-item text-dark card-link ml-0">Tugas</a>
-                    <a href="" class="list-group-item text-dark card-link ml-0">Laporan</a>
+                    <a href="<?= base_url(); ?>dosen/laporan/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="list-group-item text-dark card-link ml-0">Laporan</a>
                     <a href="<?= base_url() ?>dosen/tambahmateri/<?= $kelas['id_kelas']; ?>/<?= $kelas['kode']; ?>" class="list-group-item text-dark card-link ml-0">Tambah materi</a>
                 </ul>
             </div>
